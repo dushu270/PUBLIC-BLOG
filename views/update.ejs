@@ -1,0 +1,99 @@
+<%-include("header");-%>
+
+
+					<nav id="main-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<ul class="horizontal-navigation">
+							<li class="menu-home" itemprop="url"><a href="/" title="Home" itemprop="name">Home</a></li>
+							<li class="menu-blog active" itemprop="url"><a href="/blog.ejs" title="Blog" itemprop="name">Blog</a></li>
+							<li class="menu-contact" itemprop="url"><a href="/compose.ejs" title="Compose" itemprop="name">Compose</a></li>
+							<li class="menu-blog" itemprop="url">
+								<a href="/profile.ejs" title="author" itemprop="name"
+								  >Profile</a
+								>
+							<% if(active1===0 && active2===0) { %>
+
+								<li class="menu-blog" itemprop="url">
+								  <a href="/signin.ejs" title="SignIn" itemprop="name"
+									>SignIn</a
+								  >
+								</li>
+				
+								<%}%> <% if(active2===1 || active1===1) { %>
+				
+								<li class="menu-blog" itemprop="url">
+								  <a href="/logout.ejs" title="logout" itemprop="name"
+									>Logout</a
+								  >
+								</li>
+				
+								<%}%>
+						</ul>
+					</nav> 
+
+				</div> 
+			</div> 
+		</div> 
+
+		<div id="page-title">
+			<div class="container">
+				<div class="row">
+
+					<h1 class="entry-title" itemprop="headline">Update</h1>
+					<p class="description" itemprop="description">Modify the post</p>
+
+				</div> 
+			</div> 
+		</div> 
+
+	</div> 
+
+	<main id="content" role="main">
+
+		<div class="section">
+			<div class="container">
+				<div class="row">
+
+					<div class="three-quarters-block">
+						<div class="content">
+
+							
+						
+
+                            <form name="posts" method="post" action="/update.ejs/<%=post_data._id%>">
+                                <label>TITLE:</label>
+                                <br />
+                                <input name="titlename" type="text"  value="<%=post_data.title%>" required />
+                                <label>DESCRIPTION:</label>
+                                <br />
+                                <textarea name="content" rows="5" cols="5"  required><%=post_data.content%></textarea>
+                                <br />
+                                <button type="submit">update</button>
+                              </form>
+
+											
+
+
+									
+
+
+
+						</div> 
+					</div> 
+					
+					<div class="one-quarter-block" role="complementary">
+						<div class="sidebar">
+
+							
+
+							
+
+						</div> 
+					</div> 
+
+				</div> 
+			</div> 
+		</div> 
+
+	</main> 
+
+	<%-include("footer");-%>

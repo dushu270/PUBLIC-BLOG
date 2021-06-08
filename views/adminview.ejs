@@ -1,0 +1,130 @@
+<%-include("header");-%>
+
+
+					<nav id="main-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+						<ul class="horizontal-navigation">
+							
+
+							<li class="menu-blog" itemprop="url">
+								<a href="/admin" title="author" itemprop="name"
+								  >Admin</a
+								>
+
+								
+				
+				
+								<li class="menu-blog" itemprop="url">
+								  <a href="/logout.ejs" title="logout" itemprop="name"
+									>Logout</a
+								  >
+								</li>
+				
+						</ul>
+					</nav>
+				</div> 
+			</div>
+		</div> 
+
+		<div id="page-title">
+			<div class="container">
+				<div class="row">
+
+					<h1 class="entry-title" itemprop="headline">Profile</h1>
+					<p class="description" itemprop="description">About the author</p>
+
+				</div> 
+			</div>
+		</div>
+
+	</div>
+	<main id="content" role="main">
+
+		<div class="section">
+			<div class="container">
+				<div class="row">
+
+					<div class="three-quarters-block">
+						<div class="content">
+
+							<div class="author-profile" itemscope itemtype="http://schema.org/Person">
+								
+								<div class="two-thirds-block">
+									<h2 class="author-name">
+                                        <label>Username:</label>
+										<span itemprop="name"><%=user%></span>
+
+									</h2>
+									
+									
+									<div class="author-description">
+
+                                        <a class="more button" href="/deleteaccount/<%=user%>">Delete account</a>
+
+										 
+									</div> 
+								</div> 
+							</div>
+							<h2 class="posts-by-author-title">Posts by Author</h2>
+
+							<%if(posts.length>0){%>
+                                 <% posts.forEach(function(i){ %>
+							<div class="posts-by-author">
+
+
+								<article class="post summary hentry" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
+
+									<header class="entry-header">
+
+										<h2 class="entry-title" itemprop="headline"><b><%=i.title%></b></h2>
+
+										<div class="entry-meta">
+
+											<span class="post-date">
+												<i class="fa fa-clock-o fa-fw"></i> <span class="updated"><%=i.date%></span>
+											</span>
+
+											<span class="post-author">
+											</span>
+
+
+										</div>
+
+									</header>
+                                          
+									
+									
+
+									<div class="entry-summary" itemprop="articleBody">
+
+										<p><%=i.content.substring(0,100)+" ..."%></p>
+										<a class="more button" href="/article.ejs/<%=i.title%>">Read More</a>
+										
+										</div> 
+
+									</header>
+
+									
+
+									
+
+								</article>
+							
+							</div> 
+						<%})%>
+
+							<%}else if(posts.length===0){%>
+
+                                <p>No posts from this user</p>
+					<%	}	%>
+
+						</div>
+					</div> 
+					
+
+
+				</div> 
+			</div>
+		</div>
+	</main>
+
+	<%-include("footer");-%>

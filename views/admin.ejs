@@ -1,0 +1,85 @@
+<%-include("header");-%>
+
+            <nav
+              id="main-menu"
+              role="navigation"
+              itemscope
+              itemtype="http://schema.org/SiteNavigationElement"
+            >
+              <ul class="horizontal-navigation">
+                
+                    <li class="menu-blog" itemprop="url">
+                      <a href="/admin" title="author" itemprop="name"
+                        >Admin</a
+                      >
+      
+                      
+              
+              
+                      <li class="menu-blog" itemprop="url">
+                        <a href="/logout.ejs" title="logout" itemprop="name"
+                        >Logout</a
+                        >
+                      </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-title">
+        <div class="container">
+          <div class="row">
+            <h1 class="entry-title" itemprop="headline">Administrator</h1>
+            <p class="description" itemprop="description">
+                Manage information
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="content" role="main">
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="three-quarters-block">
+              <div class="content">
+                <article
+                  class="post hentry"
+                  itemscope
+                  itemprop="blogPost"
+                >
+                
+
+                 
+                  <div class="entry-content" itemprop="articleBody">
+                    <%if(users.length!==0){%>
+                   <p>All users</p>
+
+                    <ol type="1">
+                        <%users.forEach(function(i){%>
+                            <li><a href="/view/<%=i.username%>"><%=i.username%></a></li>
+                
+                <%        })%>
+                    </ol>
+
+                  <%}else{%>
+                    <p><b>No registered users found.</b></p>
+
+                  <%}%>
+                    
+
+                  
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%-include("footer");-%>

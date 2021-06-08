@@ -1,0 +1,61 @@
+<%-include("header");-%>
+
+
+            <nav id="main-menu">
+              
+
+                <ul class="horizontal-navigation">
+
+               
+                <li class="menu-blog" itemprop="url">
+                  <a href="/admin" title="author" itemprop="name"
+                    >Admin</a
+                  >
+                </li>
+
+                <li class="menu-blog" itemprop="url">
+                  <a href="/logout.ejs" title="logout" itemprop="name"
+                    >Logout</a
+                  >
+                </li>
+
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-title">
+        <div class="container">
+          <div class="row">
+            <h1 class="entry-title" itemprop="headline">Delete</h1>
+            <p class="description" itemprop="description">Delete the user</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="content" role="main">
+      <div class="section">
+        <div class="container">
+           <div class="row">
+          <div class="three-quarters-block">
+            <div class="content">
+              <p>Are you sure about deleting "<%=deldata.username%>"</p>
+              <a class="more button" href="/deleteacc/<%=deldata.username%>"
+                >Yes, Delete</a
+              >
+              <a class="more button" href="/admin"
+                >Cancel</a
+              >
+
+            </div>
+          </div>
+
+          
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%-include("footer");-%>

@@ -1,0 +1,86 @@
+<%-include("header");-%>
+
+
+            <nav id="main-menu">
+              <ul class="horizontal-navigation">
+                <li class="menu-home active" itemprop="url">
+                  <a href="/" title="Home" itemprop="name">Home</a>
+                </li>
+
+                <li class="menu-blog" itemprop="url">
+                  <a href="/blog.ejs" title="Blog" itemprop="name">Blog</a>
+                </li>
+                <li class="menu-contact" itemprop="url">
+                  <a href="compose.ejs" title="Compose" itemprop="name"
+                    >Compose</a
+                  >
+                </li>
+
+                <li class="menu-blog" itemprop="url">
+                  <a href="/signin.ejs" title="SignIn" itemprop="name"
+                    >SignIn</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-title">
+        <div class="container">
+          <div class="row">
+            <h1 class="entry-title" itemprop="headline">SignIn</h1>
+            <p class="description" itemprop="description">
+              Sign In to create content!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="content" role="main">
+      <div class="section">
+        <div class="container">
+        <div class="row">
+          <div class="three-quarters-block">
+            <div class="content">
+              <h2><b><%=errorMsg%></b></h2>
+
+              <form name="signin" method="post" action="/signin.ejs">
+                <label>EMAIL</label>
+                <br />
+                <input name="email" type="email" required />
+                <br />
+                <br />
+                <label>PASSWORD</label>
+                <br />
+                <input id="password" name="password" type="password" required />
+                <br />
+                <br />
+                <button type="submit">SignIn</button>
+                 <a  style="padding-left: 4rem; font-size: 1.25rem;" href="/email">Forgot password?</a>
+              </form>
+
+              <p>Not a user? <a href="/register.ejs">REGISTER</a></p>
+              <hr style="width:50%;text-align:left;margin-left:0">
+              <div class="col">
+                
+                <a href="/auth/google" class="google btn">
+                  <i class="fa fa-google fa-fw"></i> Login with Google+
+                </a>
+              </div>
+              
+
+              
+
+            </div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%-include("footer");-%>

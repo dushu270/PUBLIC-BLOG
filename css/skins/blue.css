@@ -1,0 +1,26 @@
+/* Colour */
+a,
+.post .entry-title,
+.author-name,
+.posts-by-author-title {
+  color: #75d6ff;
+}
+
+/* Background Colour */
+#masthead,
+#isotope-menu,
+.isotope-item a .overlay,
+.project-description-title:after,
+.project-details-title:after,
+button,
+.button,
+input[type="submit"],
+input[type="cancel"],
+::selection {
+  background-color: #75d6ff;
+}
+
+/* Borders */
+#prefooter {
+  border-color: #75d6ff;
+}

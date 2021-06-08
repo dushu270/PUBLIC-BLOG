@@ -1,0 +1,85 @@
+<%-include("header");-%>
+
+
+            <nav id="main-menu">
+              <ul class="horizontal-navigation">
+                <li class="menu-home active" itemprop="url">
+                  <a href="/" title="Home" itemprop="name">Home</a>
+                </li>
+
+                <li class="menu-blog" itemprop="url">
+                  <a href="/blog.ejs" title="Blog" itemprop="name">Blog</a>
+                </li>
+                <li class="menu-contact" itemprop="url">
+                  <a href="compose.ejs" title="Compose" itemprop="name"
+                    >Compose</a
+                  >
+                </li>
+
+                <% if(active1===0 && active2===0) { %>
+
+                <li class="menu-blog" itemprop="url">
+                  <a href="/signin.ejs" title="SignIn" itemprop="name"
+                    >SignIn</a
+                  >
+                </li>
+
+                <%}%> <% if(active2===1 || active1===1) { %>
+                <li class="menu-blog" itemprop="url">
+                  <a href="/profile.ejs" title="author" itemprop="name"
+                    >Profile</a
+                  >
+                </li>
+
+                <li class="menu-blog" itemprop="url">
+                  <a href="/logout.ejs" title="logout" itemprop="name"
+                    >Logout</a
+                  >
+                </li>
+
+                <%}%>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-title">
+        <div class="container">
+          <div class="row">
+            <h1 class="entry-title" itemprop="headline">Reset password</h1>
+            <p class="description" itemprop="description">change your password</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="content" role="main">
+      <div class="section">
+        <div class="container">
+            <div class="row">
+          <div class="three-quarters-block">
+            <div class="content">
+              <p><b><%=msg%></b></p>
+              <form name="posts" method="post" action="/resetpwd">
+                <label>New passsword</label>
+                <br />
+                <input name="newpwd" type="password" required />
+                <br>
+                <label>Confirm new passsword</label>
+                <br />
+                <input name="confirmnewpwd" type="password" required />
+                <br>
+                <br>
+                <button type="submit">Update Password</button>
+              </form>
+            </div>
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%-include("footer");-%>

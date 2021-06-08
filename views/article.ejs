@@ -1,0 +1,162 @@
+<%-include("header");-%>
+
+
+            <nav
+              id="main-menu"
+              role="navigation"
+              itemscope
+              itemtype="http://schema.org/SiteNavigationElement"
+            >
+              <ul class="horizontal-navigation">
+                <%if(email!==1){%>
+                  <li class="menu-home" itemprop="url"><a href="/" title="Home" itemprop="name">Home</a></li>
+                  <li class="menu-blog active" itemprop="url"><a href="/blog.ejs" title="Blog" itemprop="name">Blog</a></li>
+                  <li class="menu-contact" itemprop="url"><a href="/compose.ejs" title="Compose" itemprop="name">Compose</a></li>
+                  
+                  <% if(active1===0 && active2===0) { %>
+    
+                    <li class="menu-blog" itemprop="url">
+                      <a href="/signin.ejs" title="SignIn" itemprop="name"
+                      >SignIn</a
+                      >
+                    </li>
+            
+                    <%}%> <% if(active2===1 || active1===1) { %>
+
+
+                      <li class="menu-blog" itemprop="url">
+                        <a href="/profile.ejs" title="author" itemprop="name"
+                          >Profile</a
+                        >
+            
+                    <li class="menu-blog" itemprop="url">
+                      <a href="/logout.ejs" title="logout" itemprop="name"
+                      >Logout</a
+                      >
+                    </li>
+            
+                    <%}%>
+    
+    
+                  <%}else{%>	
+    
+                    <li class="menu-blog" itemprop="url">
+                      <a href="/admin" title="author" itemprop="name"
+                        >Admin</a
+                      >
+      
+                      
+              
+              
+                      <li class="menu-blog" itemprop="url">
+                        <a href="/logout.ejs" title="logout" itemprop="name"
+                        >Logout</a
+                        >
+                      </li>
+                  <%}%>	
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div id="page-title">
+        <div class="container">
+          <div class="row">
+            <h1 class="entry-title" itemprop="headline">Article</h1>
+            <p class="description" itemprop="description">
+              About the article
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main id="content" role="main">
+      <div class="section">
+        <div class="container">
+          <div class="row">
+            <div class="three-quarters-block">
+              <div class="content">
+                <article
+                  class="post hentry"
+                  itemscope
+                  itemprop="blogPost"
+                >
+                  <header class="entry-header">
+                    <h2 class="entry-title" itemprop="headline">
+                      <b><%=postdata.title%></b>                    </h2>
+
+                    <div class="entry-meta">
+                      <span class="post-date">
+                        <i class="fa fa-clock-o fa-fw"></i>
+                        <span class="updated"><%=postdata.date%></span>
+                      </span>
+                      <%if(email!==1){%>
+
+                      <span class="post-author">
+                        <i class="fa fa-user fa-fw"></i> Written by
+                        <span class="vcard"
+                          ><a class="fn url" href="/author.ejs/<%=postdata.username%>"><b><%=postdata.username%></b></a></span
+                        >
+                      </span>
+                    <%}%>
+                    </div>
+                  </header>
+
+                 
+
+                  <div class="entry-content" itemprop="articleBody">
+                   
+
+
+                    <p><%=postdata.content%></p>
+
+                   <% if(logusername===postdata.username && (active1==1 || active2==1) && email!==1){ %>
+                      <a class="more button" href="/update.ejs/<%=postdata._id%>">Update</a>
+										<a class="more button" href="/delete/<%=postdata._id%>">Delete</a>
+                   <% } else if(email===1){%>
+
+                    <a class="more button" href="/delete/<%=postdata._id%>">Delete</a>
+
+                   <%}%>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div class="one-quarter-block" role="complementary">
+              <div class="sidebar">
+                <div class="search-widget widget">
+                  <%if(email!==1){%>
+                  <form
+                    class="widget-form"
+                    action="/search"
+                    method="post"
+                    role="search"
+                  >
+                    <label>
+                      <span class="screen-reader-text"
+                        >Search this website:</span
+                      >
+                      <input
+                        type="search"
+                        class="search-field"
+                        placeholder="Search &hellip;"
+                        value=""
+                        name="search"
+                        title="Search"
+                      />
+                    </label>
+                    <button><i class="fa fa-search"></i></button>
+                  </form>
+                <%}%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%-include("footer");-%>
